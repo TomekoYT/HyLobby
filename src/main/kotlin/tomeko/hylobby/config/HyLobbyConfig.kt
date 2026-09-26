@@ -202,15 +202,6 @@ object HyLobbyConfig : Config(
     )
     var lobbyDisablePortalSounds = false
 
-    private const val CATEGORY_LIMBO = "Limbo"
-
-    @Switch(
-        title = "Limbo Limiter",
-        description = "While in Limbo, framerate is limited to 30, then further limited to 10 after 10 minutes, to reduce the load of the game on your computer.",
-        category = CATEGORY_LIMBO
-    )
-    var limboLimiter = false
-
 
     //? if forge {
     //@Exclude
