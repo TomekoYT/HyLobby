@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 //?}
 import tomeko.hylobby.config.HyLobbyConfig;
+import tomeko.hylobby.location.HypixelPackets;
 
 @Mixin(
         //? if 1.8.9
@@ -29,7 +30,7 @@ public abstract class SoundSilencerMixin {
             method =
                     //? if 1.8.9
                     //"playSound",
-                    //?else
+                    //? else
                     "play",
             at = @At("HEAD"),
             cancellable = true
@@ -40,18 +41,16 @@ public abstract class SoundSilencerMixin {
             //? else
             SoundInstance instance, CallbackInfoReturnable<SoundEngine.PlayResult> cir
     ) {
-        //? if 1.8.9
-        //ISound sound = instance.getSound();
-        //? else
-        Sound sound = instance.getSound();
+        if (!HypixelPackets.INSTANCE.getInLobby()) return;
 
-        if(sound == null) return;
+        //? if fabric
+        if (instance.getSound() == null) return;
 
         String path =
                 //? if 1.8.9
-                //sound.getSoundLocation().getResourcePath();
+                //instance.getSoundLocation().getResourcePath();
                 //? else
-                sound.getLocation().getPath();
+                instance.getSound().getLocation().getPath();
 
         if ((!path.startsWith("ui.") && HyLobbyConfig.INSTANCE.getSilentLobby())
                 || (path.endsWith(".step") && HyLobbyConfig.INSTANCE.getLobbyDisableSteppingSounds())

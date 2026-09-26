@@ -3,16 +3,12 @@ package tomeko.hylobby.config
 //? if forge {
 /*import cc.polyfrost.oneconfig.config.Config
 import cc.polyfrost.oneconfig.config.annotations.*
-import cc.polyfrost.oneconfig.config.core.OneColor as PolyColor
 import cc.polyfrost.oneconfig.config.data.InfoType
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 *///?} else {
 import org.polyfrost.oneconfig.api.config.v1.Config
 import org.polyfrost.oneconfig.api.config.v1.annotations.*
-//?}
-//? if forge {
-//import tomeko.hylobby.hud.BedwarsResourceDisplay
 //?}
 import tomeko.hylobby.utils.Constants
 
@@ -70,133 +66,209 @@ object HyLobbyConfig : Config(
     private const val CATEGORY_SOUND_SILENCER = "Sound Silencer"
 
     @Switch(
-        title = "Silent Lobby",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Silent Lobby",
         description = "Prevent all sounds from playing when you are in a lobby.",
         category = CATEGORY_SOUND_SILENCER
     )
     var silentLobby = false
 
     @Switch(
-        title = "Disable Stepping Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Stepping Sounds",
         description = "Remove sounds created by stepping.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableSteppingSounds = false
 
     @Switch(
-        title = "Disable Slime Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Slime Sounds",
         description = "Remove sounds created by slimes.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableSlimeSounds = false
 
     @Switch(
-        title = "Disable Dragon Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Dragon Sounds",
         description = "Remove sounds created by dragons.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableDragonSounds = false
 
     @Switch(
-        title = "Disable Wither Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Wither Sounds",
         description = "Remove sounds created by withers & wither skeletons.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableWitherSounds = false
 
     @Switch(
-        title = "Disable Item Pickup Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Item Pickup Sounds",
         description = "Remove sounds created by picking up an item.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableItemPickupSounds = false
 
     @Switch(
-        title = "Disable Experience Orb Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Experience Orb Sounds",
         description = "Remove sounds created by experience orbs.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableExperienceOrbSounds = false
 
     @Switch(
-        title = "Disable Primed TNT Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Primed TNT Sounds",
         description = "Remove sounds created by primed TNT.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisablePrimedTntSounds = false
 
     @Switch(
-        title = "Disable Explosion Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Explosion Sounds",
         description = "Remove sounds created by explosions.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableExplosionSounds = false
 
     @Switch(
-        title = "Disable Delivery Man Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Delivery Man Sounds",
         description = "Remove sounds created by Delivery Man events.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableDeliveryManSounds = false
 
     @Switch(
-        title = "Disable Note Block Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Note Block Sounds",
         description = "Remove sounds created by note blocks.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableNoteBlockSounds = false
 
     @Switch(
-        title = "Disable Firework Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Firework Sounds",
         description = "Remove sounds created by fireworks.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableFireworkSounds = false
 
     @Switch(
-        title = "Disable Levelup Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Levelup Sounds",
         description = "Remove sounds created by someone leveling up.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableLevelupSounds = false
 
     @Switch(
-        title = "Disable Arrow Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Arrow Sounds",
         description = "Remove sounds created by arrows.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableArrowSounds = false
 
     @Switch(
-        title = "Disable Bat Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Bat Sounds",
         description = "Remove sounds created by bats.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableBatSounds = false
 
     @Switch(
-        title = "Disable Fire Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Fire Sounds",
         description = "Remove sounds created by fire.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableFireSounds = false
 
     @Switch(
-        title = "Disable Enderman Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Enderman Sounds",
         description = "Remove sounds created by endermen.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableEndermanSounds = false
 
     @Switch(
-        title = "Disable Door Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Door Sounds",
         description = "Disable sounds caused by doors, trapdoors, and fence gates.",
         category = CATEGORY_SOUND_SILENCER
     )
     var lobbyDisableDoorSounds = false
 
     @Switch(
-        title = "Disable Portal Sounds",
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Disable Portal Sounds",
         description = "Disable sounds caused by nether portals.",
         category = CATEGORY_SOUND_SILENCER
     )
