@@ -42,7 +42,3 @@ Minecraft mod for Hypixel adding lobby related features like middle click gui it
 - Disable Enderman Sounds
 - Disable Door Sounds
 - Disable Portal Sounds
-
-### Limbo
-
-- Limbo Limiter
