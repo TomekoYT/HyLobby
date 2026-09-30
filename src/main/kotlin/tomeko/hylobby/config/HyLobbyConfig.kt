@@ -27,22 +27,21 @@ object HyLobbyConfig : Config(
     Category.HYPIXEL
     //?}
 ) {
-    //? if !forge {
+    //? if forge
+    //@Exclude
     val DEPENDENCIES: List<Pair<String, List<String>>> = listOf(
     )
-    //?}
 
     fun register() {
-        //? if forge {
+        //? if forge
         //initialize()
-        //?} else {
+        //? else
         preload()
         for ((condition, dependencies) in DEPENDENCIES) {
             for (dependency in dependencies) {
                 addDependency(dependency, condition)
             }
         }
-        //?}
     }
 
     //? if forge {
@@ -63,6 +62,8 @@ object HyLobbyConfig : Config(
     var middleClickGUIItems = true
 
 
+    //? if forge
+    //@Exclude
     private const val CATEGORY_SOUND_SILENCER = "Sound Silencer"
 
     @Switch(
@@ -275,9 +276,8 @@ object HyLobbyConfig : Config(
     var lobbyDisablePortalSounds = false
 
 
-    //? if forge {
+    //? if forge
     //@Exclude
-    //?}
     private const val CATEGORY_DEBUG = "Debug"
 
     @Info(
