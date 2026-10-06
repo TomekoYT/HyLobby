@@ -20,9 +20,10 @@ import tomeko.hylobby.utils.Debug;
 
 @Mixin(
         //? if 1.8.9
-        //SoundManager.class
+        //value = SoundManager.class,
         //? else
-        SoundEngine.class
+        value = SoundEngine.class,
+        priority = Integer.MAX_VALUE
 )
 abstract class SoundSilencerMixin {
     @Inject(

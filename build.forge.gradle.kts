@@ -32,7 +32,7 @@ loom {
     runs {
         getByName("client") {
             property("mixin.debug", "true")
-            programArgs("--tweakClass", "org.spongepowered.asm.launch.MixinTweaker")
+            property("fml.coreMods.load", "zone.rong.mixinbooter.MixinBooterPlugin")
             programArgs("--tweakClass", "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker")
         }
     }
@@ -67,7 +67,7 @@ sourceSets.main {
 
 repositories {
     mavenCentral()
-    maven("https://repo.spongepowered.org/maven/")
+    maven("https://maven.cleanroommc.com")
     maven("https://repo.polyfrost.cc/releases")
     maven("https://repo.hypixel.net/repository/Hypixel/")
 }
@@ -88,11 +88,10 @@ dependencies {
     annotationProcessor("com.google.guava:guava:32.1.2-jre")
     annotationProcessor("com.google.code.gson:gson:2.8.9")
 
-    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
-    shadowImpl("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+    implementation("zone.rong:mixinbooter:11.17") {
         isTransitive = false
-
     }
+    annotationProcessor("zone.rong:mixinbooter:11.17")
 
     compileOnly("cc.polyfrost:oneconfig-$minecraftVersion-forge:$oneconfigVersion")
     shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+")
@@ -120,8 +119,8 @@ tasks.withType(org.gradle.jvm.tasks.Jar::class) {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
 
-        this["TweakClass"] = "org.spongepowered.asm.launch.MixinTweaker"
         this["MixinConfigs"] = "mixins.$modId.json"
+        this["MixinConnector"] = "$baseGroup.MixinConnector"
     }
 }
 
