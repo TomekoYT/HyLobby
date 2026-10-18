@@ -278,6 +278,45 @@ object HyLobbyConfig : Config(
 
     //? if forge
     //@Exclude
+    private const val CATEGORY_LIMBO = "Limbo"
+
+    @Checkbox(
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Limbo Play Helper",
+        description = "When a /play or /requeue command is run in Limbo, this runs /l first and then the command.",
+        category = CATEGORY_LIMBO
+    )
+    var limboPlayCommandHelper = true
+
+    @Switch(
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Limbo Limiter",
+        description = "While in Limbo, limit your framerate to reduce the load of the game on your computer.",
+        category = CATEGORY_LIMBO
+    )
+    var limboLimiter = false
+
+    @Slider(
+        //? if forge
+        //name =
+            //? else
+            title =
+            "Limbo Limiter FPS",
+        description = "Set the maximal FPS while in Limbo.",
+        category = CATEGORY_LIMBO,
+        min = 1f, max = 60f
+    )
+    var limboFPS = 15
+
+
+    //? if forge
+    //@Exclude
     private const val CATEGORY_DEBUG = "Debug"
 
     @Info(
