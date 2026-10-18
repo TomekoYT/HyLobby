@@ -11,6 +11,7 @@ import net.fabricmc.api.ClientModInitializer
 //?}
 import tomeko.hylobby.commands.*
 import tomeko.hylobby.config.*
+import tomeko.hylobby.limbo.*
 import tomeko.hylobby.location.*
 import tomeko.hylobby.utils.*
 
@@ -53,6 +54,9 @@ class HyLobby
         HyLobbyConfig.register()
 
         HypixelPackets.register()
+
+        LimboLimiter.register()
+        LimboPlayHelper.register()
 
         Debug.forceLog("${Constants.MOD_VERSION} Initialized!")
     }

@@ -60,6 +60,7 @@ object HypixelPackets {
 
         if (!packet.serverType.isPresent) {
             disableAll()
+            currentServerName = packet.serverName
             return
         }
 
