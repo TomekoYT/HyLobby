@@ -46,7 +46,7 @@ object HyLobbyCommand {
 
         //? if ornithe {
         //MinecraftClientEvents.TICK_END.register {
-            //?} else {
+        //?} else {
         ClientTickEvents.END_CLIENT_TICK.register {
             //?}
             if (!shouldOpenConfig) return@register
@@ -64,4 +64,12 @@ object HyLobbyCommand {
         HyLobbyConfig.openGui()
     }
     *///?}
+
+    fun openConfig() {
+        //? if forge {
+        //HyLobbyConfig.openGui()
+        //?} else {
+        shouldOpenConfig = true
+        //?}
+    }
 }

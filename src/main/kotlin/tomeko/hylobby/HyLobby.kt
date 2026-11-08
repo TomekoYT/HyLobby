@@ -13,6 +13,7 @@ import tomeko.hylobby.commands.*
 import tomeko.hylobby.config.*
 import tomeko.hylobby.limbo.*
 import tomeko.hylobby.location.*
+import tomeko.hylobby.quickjoin.QuickJoin
 import tomeko.hylobby.utils.*
 
 //? if forge {
@@ -57,6 +58,8 @@ class HyLobby
 
         LimboLimiter.register()
         LimboPlayHelper.register()
+
+        QuickJoin.register()
 
         Debug.forceLog("${Constants.MOD_VERSION} Initialized!")
     }

@@ -54,8 +54,8 @@ object HyLobbyConfig : Config(
         //name =
         //?} else {
         title =
-        //?}
-        "Middle Click GUI Items",
+            //?}
+            "Middle Click GUI Items",
         description = "Replace left click with middle click in GUIs in Hypixel lobbies",
         category = CATEGORY_MIDDLE_CLICK_GUI_ITEMS
     )
@@ -69,8 +69,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Silent Lobby",
         description = "Prevent all sounds from playing when you are in a lobby.",
         category = CATEGORY_SOUND_SILENCER
@@ -80,8 +80,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Stepping Sounds",
         description = "Remove sounds created by stepping.",
         category = CATEGORY_SOUND_SILENCER
@@ -91,8 +91,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Slime Sounds",
         description = "Remove sounds created by slimes.",
         category = CATEGORY_SOUND_SILENCER
@@ -102,8 +102,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Dragon Sounds",
         description = "Remove sounds created by dragons.",
         category = CATEGORY_SOUND_SILENCER
@@ -113,8 +113,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Wither Sounds",
         description = "Remove sounds created by withers & wither skeletons.",
         category = CATEGORY_SOUND_SILENCER
@@ -124,8 +124,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Item Pickup Sounds",
         description = "Remove sounds created by picking up an item.",
         category = CATEGORY_SOUND_SILENCER
@@ -135,8 +135,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Experience Orb Sounds",
         description = "Remove sounds created by experience orbs.",
         category = CATEGORY_SOUND_SILENCER
@@ -146,8 +146,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Primed TNT Sounds",
         description = "Remove sounds created by primed TNT.",
         category = CATEGORY_SOUND_SILENCER
@@ -157,8 +157,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Explosion Sounds",
         description = "Remove sounds created by explosions.",
         category = CATEGORY_SOUND_SILENCER
@@ -168,8 +168,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Delivery Man Sounds",
         description = "Remove sounds created by Delivery Man events.",
         category = CATEGORY_SOUND_SILENCER
@@ -179,8 +179,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Note Block Sounds",
         description = "Remove sounds created by note blocks.",
         category = CATEGORY_SOUND_SILENCER
@@ -190,8 +190,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Firework Sounds",
         description = "Remove sounds created by fireworks.",
         category = CATEGORY_SOUND_SILENCER
@@ -201,8 +201,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Levelup Sounds",
         description = "Remove sounds created by someone leveling up.",
         category = CATEGORY_SOUND_SILENCER
@@ -212,8 +212,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Arrow Sounds",
         description = "Remove sounds created by arrows.",
         category = CATEGORY_SOUND_SILENCER
@@ -223,8 +223,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Bat Sounds",
         description = "Remove sounds created by bats.",
         category = CATEGORY_SOUND_SILENCER
@@ -234,8 +234,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Fire Sounds",
         description = "Remove sounds created by fire.",
         category = CATEGORY_SOUND_SILENCER
@@ -245,8 +245,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Enderman Sounds",
         description = "Remove sounds created by endermen.",
         category = CATEGORY_SOUND_SILENCER
@@ -256,8 +256,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Door Sounds",
         description = "Disable sounds caused by doors, trapdoors, and fence gates.",
         category = CATEGORY_SOUND_SILENCER
@@ -267,8 +267,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Disable Portal Sounds",
         description = "Disable sounds caused by nether portals.",
         category = CATEGORY_SOUND_SILENCER
@@ -283,8 +283,8 @@ object HyLobbyConfig : Config(
     @Checkbox(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Limbo Play Helper",
         description = "When a /play or /requeue command is run in Limbo, this runs /l first and then the command.",
         category = CATEGORY_LIMBO
@@ -294,8 +294,8 @@ object HyLobbyConfig : Config(
     @Switch(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Limbo Limiter",
         description = "While in Limbo, limit your framerate to reduce the load of the game on your computer.",
         category = CATEGORY_LIMBO
@@ -305,14 +305,96 @@ object HyLobbyConfig : Config(
     @Slider(
         //? if forge
         //name =
-            //? else
-            title =
+        //? else
+        title =
             "Limbo Limiter FPS",
         description = "Set the maximal FPS while in Limbo.",
         category = CATEGORY_LIMBO,
         min = 1f, max = 60f
     )
     var limboFPS = 15
+
+
+    //? if forge
+    //@Exclude
+    private const val CATEGORY_QUICKJOIN = "QuickJoin"
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "QuickJoin",
+        description = "Quickly join any game on Hypixel with /quickjoin, its alias or a keybind.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnabled = true
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Bold Buttons",
+        description = "Use bold text for the game names in the QuickJoin menu.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinBoldButtons = false
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Colored Buttons",
+        description = "Use colored text for the game names in the QuickJoin menu.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinColoredButtons = false
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Enable Command Alias",
+        description = "Open QuickJoin with the command alias below in addition to /quickjoin.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnableAlias = true
+
+    @Text(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Command Alias",
+        description = "The alias for /quickjoin, without the slash.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinCommandAlias = "qj"
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Enable Keybind",
+        description = "Open QuickJoin with a key (default X). Favorites (C) and Search (V) keys can be rebound in Controls too.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnableKeybind = true
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Enable Favorites",
+        description = "Right click a QuickJoin entry to favorite it and open your favorites with the Favorites button or key.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnableFavorites = true
 
 
     //? if forge
@@ -324,8 +406,8 @@ object HyLobbyConfig : Config(
         //text =
         //?} else {
         title =
-        //?}
-        "Probably should stay disabled",
+            //?}
+            "Probably should stay disabled",
         //? if forge {
         //type = InfoType.WARNING,
         //?}
@@ -338,8 +420,8 @@ object HyLobbyConfig : Config(
         //name =
         //?} else {
         title =
-        //?}
-        "Debug Mode",
+            //?}
+            "Debug Mode",
         category = CATEGORY_DEBUG
     )
     var debugModeEnabled = false
