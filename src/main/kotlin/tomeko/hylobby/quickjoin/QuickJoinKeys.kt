@@ -67,8 +67,8 @@ internal object QuickJoinKeys {
 
     private val KEY_TYPE: InputConstants.Type =
         //? if >=26.3 {
-        //InputConstants.Type.KEYBOARD
-    //?} else {
+        /*InputConstants.Type.KEYBOARD
+    *///?} else {
     InputConstants.Type.KEYSYM
     //?}
 }

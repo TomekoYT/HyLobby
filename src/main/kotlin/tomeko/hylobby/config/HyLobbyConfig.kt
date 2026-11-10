@@ -44,15 +44,96 @@ object HyLobbyConfig : Config(
         }
     }
 
-    //? if forge {
+    //? if forge
     //@Exclude
-    //?}
+    private const val CATEGORY_QUICKJOIN = "QuickJoin"
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "QuickJoin",
+        description = "Quickly join any game on Hypixel with /quickjoin, its alias or a keybind.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnabled = true
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Bold Buttons",
+        description = "Use bold text for the game names in the QuickJoin menu.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinBoldButtons = false
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Colored Buttons",
+        description = "Use colored text for the game names in the QuickJoin menu.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinColoredButtons = false
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Enable Command Alias",
+        description = "Open QuickJoin with the command alias below in addition to /quickjoin.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnableAlias = true
+
+    @Text(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Command Alias",
+        description = "The alias for /quickjoin, without the slash.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinCommandAlias = "qj"
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Enable Keybind",
+        description = "Open QuickJoin with a key (default X). Favorites (C) and Search (V) keys can be rebound in Controls too.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnableKeybind = true
+
+    @Switch(
+        //? if forge
+        //name =
+        //? else
+        title =
+            "Enable Favorites",
+        description = "Right click a QuickJoin entry to favorite it and open your favorites with the Favorites button or key.",
+        category = CATEGORY_QUICKJOIN
+    )
+    var quickJoinEnableFavorites = true
+
+    //? if forge {
+    /*@Exclude
+    *///?}
     private const val CATEGORY_MIDDLE_CLICK_GUI_ITEMS = "Middle Click GUI Items"
 
     @Switch(
         //? if forge {
-        //name =
-        //?} else {
+        /*name =
+        *///?} else {
         title =
             //?}
             "Middle Click GUI Items",
@@ -317,108 +398,26 @@ object HyLobbyConfig : Config(
 
     //? if forge
     //@Exclude
-    private const val CATEGORY_QUICKJOIN = "QuickJoin"
-
-    @Switch(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "QuickJoin",
-        description = "Quickly join any game on Hypixel with /quickjoin, its alias or a keybind.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinEnabled = true
-
-    @Switch(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "Bold Buttons",
-        description = "Use bold text for the game names in the QuickJoin menu.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinBoldButtons = false
-
-    @Switch(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "Colored Buttons",
-        description = "Use colored text for the game names in the QuickJoin menu.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinColoredButtons = false
-
-    @Switch(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "Enable Command Alias",
-        description = "Open QuickJoin with the command alias below in addition to /quickjoin.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinEnableAlias = true
-
-    @Text(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "Command Alias",
-        description = "The alias for /quickjoin, without the slash.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinCommandAlias = "qj"
-
-    @Switch(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "Enable Keybind",
-        description = "Open QuickJoin with a key (default X). Favorites (C) and Search (V) keys can be rebound in Controls too.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinEnableKeybind = true
-
-    @Switch(
-        //? if forge
-        //name =
-        //? else
-        title =
-            "Enable Favorites",
-        description = "Right click a QuickJoin entry to favorite it and open your favorites with the Favorites button or key.",
-        category = CATEGORY_QUICKJOIN
-    )
-    var quickJoinEnableFavorites = true
-
-
-    //? if forge
-    //@Exclude
     private const val CATEGORY_DEBUG = "Debug"
 
     @Info(
         //? if forge {
-        //text =
-        //?} else {
+        /*text =
+        *///?} else {
         title =
             //?}
             "Probably should stay disabled",
         //? if forge {
-        //type = InfoType.WARNING,
-        //?}
+        /*type = InfoType.WARNING,
+        *///?}
         category = CATEGORY_DEBUG
     )
     var debugModeInfo: Nothing? = null
 
     @Switch(
         //? if forge {
-        //name =
-        //?} else {
+        /*name =
+        *///?} else {
         title =
             //?}
             "Debug Mode",

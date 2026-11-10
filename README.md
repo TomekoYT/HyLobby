@@ -16,6 +16,12 @@ Minecraft mod for Hypixel adding lobby related features like middle click gui it
 
 ## Features
 
+### QuickJoin
+
+- Join any Hypixel game from a button menu, opened with `/quickjoin`, its alias (`/qj` by default) or a keybind
+- Favorites: right-click an entry to favorite it, open them with the Favorites button or keybind
+- Search: find any game by name, with typo tolerance, with the Search button or keybind
+
 ### Middle Click GUI Items
 
 - Replace left click with middle click in GUIs
@@ -48,8 +54,6 @@ Minecraft mod for Hypixel adding lobby related features like middle click gui it
 - Limbo Play Helper
 - Limbo Limiter FPS
 
-### QuickJoin
+## Special Thanks
 
-- Join any Hypixel game from a button menu, opened with `/quickjoin`, its alias (`/qj` by default) or a keybind
-- Favorites: right click an entry to favorite it, open them with the Favorites button or keybind
-- Search: find any game by name, with typo tolerance, with the Search button or keybind
+- [Wyvest](https://github.com/Wyvest) - Limbo Play Helper, Limbo Limiter FPS
