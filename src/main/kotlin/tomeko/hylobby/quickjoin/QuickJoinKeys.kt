@@ -21,9 +21,10 @@ internal object QuickJoinKeys {
         if (registered || mc.gameSettings == null) return
         registered = true
 
-        openKey = KeyBinding("QuickJoin: Open Menu", Keyboard.KEY_NONE, "HyLobby")
-        favoritesKey = KeyBinding("QuickJoin: Open Favorites", Keyboard.KEY_NONE, "HyLobby")
-        searchKey = KeyBinding("QuickJoin: Open Search", Keyboard.KEY_NONE, "HyLobby")
+        // options.txt splits lines on ':', so a ':' in the description stops the binding from ever loading back
+        openKey = KeyBinding("Open QuickJoin Menu", Keyboard.KEY_NONE, "HyLobby")
+        favoritesKey = KeyBinding("Open QuickJoin Favorites", Keyboard.KEY_NONE, "HyLobby")
+        searchKey = KeyBinding("Open QuickJoin Search", Keyboard.KEY_NONE, "HyLobby")
 
         val old = mc.gameSettings.keyBindings
         mc.gameSettings.keyBindings = arrayOf(*old, openKey, favoritesKey, searchKey)
