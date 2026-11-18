@@ -5,12 +5,12 @@ import tomeko.hylobby.quickjoin.data.Func
 import tomeko.hylobby.quickjoin.data.GuiData
 import tomeko.hylobby.quickjoin.favorites.FavoriteEntry
 import tomeko.hylobby.quickjoin.favorites.FavoritesManager
+import tomeko.hylobby.utils.Constants
 import kotlin.math.abs
 
-// Version independent helpers shared by every QuickJoin screen.
 object QuickJoinLogic {
-    const val MAIN_GUI = "QuickJoinGui"
-    const val PREFIX = "§4[§6§lQUICKJOIN§4]§a: "
+    const val MAIN_GUI = "${Constants.MOD_NAME}Gui"
+    const val PREFIX = "§4[§6§l${Constants.MOD_NAME}§4]§a: "
 
     const val ID_FAVORITES = 7000
     const val ID_SEARCH = 7001
@@ -41,7 +41,6 @@ object QuickJoinLogic {
 
     fun button(gui: GuiData?, buttonId: Int): ButtonConfig? = gui?.buttons?.firstOrNull { it.id == buttonId }
 
-    // Only playable entries can be favorited, categories that just open another menu cannot.
     fun canFavorite(guiName: String, buttonId: Int): Boolean {
         if (buttonId >= ID_FAVORITES) return false
         val func = func(guiName, buttonId)
@@ -50,14 +49,12 @@ object QuickJoinLogic {
 
     fun parentTitle(guiName: String): String {
         val name = gui(guiName)?.name
-        return if (guiName == MAIN_GUI || name == null) "Quickjoin" else name
+        return if (guiName == MAIN_GUI || name == null) Constants.MOD_NAME else name
     }
 
     fun childName(guiName: String, buttonId: Int): String = button(gui(guiName), buttonId)?.label ?: "$guiName#$buttonId"
 
     fun childColor(guiName: String, buttonId: Int): String = button(gui(guiName), buttonId)?.colorCode ?: "§f"
-
-    // Search
 
     class SearchEntry(
         val guiName: String,
@@ -127,8 +124,6 @@ object QuickJoinLogic {
         if (i < la || j < lb) edits++
         return edits <= 1
     }
-
-    // Favorites
 
     fun filterFavorites(query: String?): List<FavoriteEntry> {
         val favorites = FavoritesManager.getFavorites()

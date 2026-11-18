@@ -4,8 +4,6 @@ import tomeko.hylobby.config.HyLobbyConfig
 import tomeko.hylobby.quickjoin.data.ButtonConfig
 import tomeko.hylobby.quickjoin.data.Func
 
-// Builds the grid of tiles ("Choose a Game" style) for a QuickJoin menu. Only positions and texts are computed
-// here, the screens of each Minecraft version draw the tiles.
 object QuickJoinTiles {
     const val TILE_HEIGHT = 22
     const val ICON_SIZE = 22
@@ -71,7 +69,6 @@ object QuickJoinTiles {
         val main = guiName == QuickJoinLogic.MAIN_GUI
         grid.title = if (main) "Choose a Game" else displayName(gui.name)
 
-        // Entries are grouped by kind and keep the reading order of the original layout inside a group.
         val buttons = guiButtons.sortedWith(Comparator { a, b ->
             val rankA = rank(guiName, a, main)
             val rankB = rank(guiName, b, main)
@@ -99,9 +96,9 @@ object QuickJoinTiles {
                     subtitle(func, main),
                     button.colorCode ?: "§f",
                     hasIcon,
-                    if (hasIcon) icon!!.sheet else 0,
-                    if (hasIcon) icon!!.textureX * ICON_SIZE / 76 else 0,
-                    if (hasIcon) icon!!.textureY * ICON_SIZE / 76 else 0
+                    if (hasIcon) icon.sheet else 0,
+                    if (hasIcon) icon.textureX * ICON_SIZE / 76 else 0,
+                    if (hasIcon) icon.textureY * ICON_SIZE / 76 else 0
                 )
             )
         }
@@ -137,7 +134,6 @@ object QuickJoinTiles {
 
     private fun isBack(func: Func?): Boolean = func != null && func.type == "opengui" && func.string == QuickJoinLogic.MAIN_GUI
 
-    // Main menu: lobby first, then the games, then single commands, Limbo and exit. Sub menus: back entry last.
     private fun rank(guiName: String, button: ButtonConfig, main: Boolean): Int {
         val func = QuickJoinLogic.func(guiName, button.id)
         if (!main) return if (isBack(func)) 1 else 0
@@ -170,7 +166,6 @@ object QuickJoinTiles {
         }
     }
 
-    // "BLITZ SG" -> "Blitz SG", "BEDWARS" -> "Bed Wars"
     fun displayName(raw: String?): String {
         if (raw == null) return ""
         val trimmed = raw.trim()
@@ -194,7 +189,6 @@ object QuickJoinTiles {
 
     fun stripCodes(text: String): String = text.replace(Regex("§."), "")
 
-    // ARGB color of a legacy color code, used for the placeholder of entries without artwork.
     fun colorOf(code: String?): Int {
         if (code == null || code.length < 2) return 0xFFFFFFFF.toInt()
         return when (code[1].lowercaseChar()) {

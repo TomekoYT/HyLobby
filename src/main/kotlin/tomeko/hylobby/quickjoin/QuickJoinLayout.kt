@@ -5,7 +5,7 @@ import tomeko.hylobby.quickjoin.data.LayoutConfig
 import tomeko.hylobby.utils.Debug
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
-import java.net.URL
+import java.net.URI
 import java.nio.charset.StandardCharsets
 import kotlin.concurrent.thread
 
@@ -18,7 +18,6 @@ object QuickJoinLayout {
     @Volatile
     private var layout: LayoutConfig? = null
 
-    // Loads the bundled layout right away and then refreshes it from the Quickjoin repository in the background.
     fun load() {
         layout = readFallback()
         thread(isDaemon = true, name = "HyLobby-QuickJoin-Layout") {
@@ -39,7 +38,7 @@ object QuickJoinLayout {
 
     private fun readRemote(): LayoutConfig? {
         return try {
-            val connection = URL(REMOTE_URL).openConnection() as HttpURLConnection
+            val connection = URI.create(REMOTE_URL).toURL().openConnection() as HttpURLConnection
             connection.connectTimeout = 5000
             connection.readTimeout = 5000
             InputStreamReader(connection.inputStream, StandardCharsets.UTF_8).use { reader ->

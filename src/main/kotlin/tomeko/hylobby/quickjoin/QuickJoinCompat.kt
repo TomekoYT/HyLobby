@@ -34,7 +34,7 @@ import net.minecraft.network.chat.Component
 
 // Thin wrapper over the parts of the client API that differ between Minecraft versions.
 object QuickJoinCompat {
-    fun hasPlayer(mc: Minecraft?): Boolean = mc != null && mc.player != null
+    fun hasPlayer(mc: Minecraft?): Boolean = mc?.player != null
 
     fun hasScreen(mc: Minecraft): Boolean {
         //? if >= 26.2
@@ -56,9 +56,9 @@ object QuickJoinCompat {
 
     fun addChat(mc: Minecraft, message: String) {
         //? if >= 26.2 {
-        mc.gui?.hud?.getChat()?.addClientSystemMessage(Component.literal(message))
+        mc.gui.hud.chat.addClientSystemMessage(Component.literal(message))
         //?} else {
-        /*mc.gui?.getChat()?.addClientSystemMessage(Component.literal(message))
+        /*mc.gui.chat.addClientSystemMessage(Component.literal(message))
         *///?}
     }
 
