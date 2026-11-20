@@ -169,6 +169,17 @@ abstract class MiddleClickGUIItemsMixin {
         if (HypixelPackets.INSTANCE.getInDuels() && HypixelPackets.INSTANCE.getInLobby())
             return true;
 
+        String itemTitle = StringHelperKt.removeFormatting(
+                //? if 1.8.9
+                slot.getStack().getDisplayName()
+                //? else
+                //slot.getItem().getHoverName().getString()
+        );
+
+        if (itemTitle.equals("Random Map") || itemTitle.equals("Random Favorite")) {
+            return true;
+        }
+
         String containerTitle =
                 //? if 1.8.9 {
                 /*((ContainerChest) instance.inventorySlots).getLowerChestInventory().getDisplayName().getUnformattedText();
