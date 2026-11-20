@@ -1,7 +1,7 @@
 package tomeko.hylobby.event;
 
 //? if 1.8.9 {
-/*public final class ClientTickEvents {
+public final class ClientTickEvents {
     private ClientTickEvents() {}
 
     public static final Event<Start> START_CLIENT_TICK = Event.create(Start.class, listeners -> minecraft -> {
@@ -26,4 +26,4 @@ package tomeko.hylobby.event;
         void onEndTick(net.minecraft.client.Minecraft minecraft);
     }
 }
-*///?}
+//?}

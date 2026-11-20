@@ -10,11 +10,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 import net.minecraftforge.fml.common.network.FMLNetworkEvent
 *///?} elif ornithe {
-/*import net.ornithemc.osl.networking.api.client.ClientConnectionEvents
-*///?} else {
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+import net.ornithemc.osl.networking.api.client.ClientConnectionEvents
+//?} else {
+/*import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents
-//?}
+*///?}
 import tomeko.hylobby.utils.Debug
 
 object HypixelPackets {
@@ -35,10 +35,10 @@ object HypixelPackets {
         //? if forge {
         /*MinecraftForge.EVENT_BUS.register(this)
         *///?} elif ornithe {
-        /*ClientConnectionEvents.DISCONNECT.register { disableHypixel() }
-        *///?} else {
-        ClientPlayConnectionEvents.DISCONNECT.register { _, _ -> disableHypixel() }
-        //?}
+        ClientConnectionEvents.DISCONNECT.register { disableHypixel() }
+        //?} else {
+        /*ClientPlayConnectionEvents.DISCONNECT.register { _, _ -> disableHypixel() }
+        *///?}
         HypixelModAPI.getInstance().createHandler(ClientboundLocationPacket::class.java, ::onLocationPacket)
         HypixelModAPI.getInstance().subscribeToEventPacket(ClientboundLocationPacket::class.java)
     }

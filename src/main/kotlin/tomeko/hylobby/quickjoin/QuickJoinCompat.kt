@@ -1,7 +1,7 @@
 package tomeko.hylobby.quickjoin
 
 //? if 1.8.9 {
-/*import net.minecraft.client.Minecraft
+import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraft.util.ChatComponentText
 
@@ -27,8 +27,8 @@ object QuickJoinCompat {
         mc.thePlayer?.sendChatMessage(if (command.startsWith("/")) command else "/$command")
     }
 }
-*///?} else {
-import net.minecraft.client.Minecraft
+//?} else {
+/*import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.screens.Screen
 import net.minecraft.network.chat.Component
 
@@ -38,16 +38,16 @@ object QuickJoinCompat {
 
     fun hasScreen(mc: Minecraft): Boolean {
         //? if >= 26.2
-        return mc.gui.screen() != null
+        //return mc.gui.screen() != null
         //? else
-        //return mc.screen != null
+        return mc.screen != null
     }
 
     fun setScreen(mc: Minecraft, screen: Screen?) {
         //? if >= 26.2
-        mc.gui.setScreen(screen)
+        //mc.gui.setScreen(screen)
         //? else
-        //mc.setScreen(screen)
+        mc.setScreen(screen)
     }
 
     fun closeScreen(mc: Minecraft) {
@@ -56,14 +56,14 @@ object QuickJoinCompat {
 
     fun addChat(mc: Minecraft, message: String) {
         //? if >= 26.2 {
-        mc.gui.hud.chat.addClientSystemMessage(Component.literal(message))
-        //?} else {
-        /*mc.gui.chat.addClientSystemMessage(Component.literal(message))
-        *///?}
+        /*mc.gui.hud.chat.addClientSystemMessage(Component.literal(message))
+        *///?} else {
+        mc.gui.chat.addClientSystemMessage(Component.literal(message))
+        //?}
     }
 
     fun sendCommand(mc: Minecraft, command: String) {
         mc.player?.connection?.sendCommand(if (command.startsWith("/")) command.substring(1) else command)
     }
 }
-//?}
+*///?}

@@ -1,7 +1,7 @@
 package tomeko.hylobby.quickjoin.screen
 
 //? if 1.8.9 {
-/*import net.minecraft.client.Minecraft
+import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiScreen
@@ -110,8 +110,8 @@ class QuickJoinScreen(private val guiName: String) : GuiScreen() {
         }
     }
 }
-*///?} else {
-import net.minecraft.client.Minecraft
+//?} else {
+/*import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiGraphicsExtractor
 import net.minecraft.client.gui.components.Button
 import net.minecraft.client.gui.screens.Screen
@@ -244,4 +244,4 @@ class QuickJoinScreen(private val guiName: String) : Screen(Component.literal("Q
         return parsed
     }
 }
-//?}
+*///?}

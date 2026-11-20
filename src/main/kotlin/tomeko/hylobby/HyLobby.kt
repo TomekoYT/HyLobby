@@ -5,10 +5,10 @@ package tomeko.hylobby
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 *///?} elif ornithe {
-/*import net.ornithemc.osl.entrypoints.api.ModInitializer
-*///?} else {
-import net.fabricmc.api.ClientModInitializer
-//?}
+import net.ornithemc.osl.entrypoints.api.ModInitializer
+//?} else {
+/*import net.fabricmc.api.ClientModInitializer
+*///?}
 import tomeko.hylobby.commands.*
 import tomeko.hylobby.config.*
 import tomeko.hylobby.limbo.*
@@ -27,10 +27,10 @@ import tomeko.hylobby.utils.*
 *///?}
 class HyLobby
 //? if ornithe {
-/*: ModInitializer
-*///?} elif fabric {
-    : ClientModInitializer
-//?}
+: ModInitializer
+//?} elif fabric {
+    /*: ClientModInitializer
+*///?}
 {
     //? if forge {
     /*@Mod.EventHandler
@@ -39,10 +39,10 @@ class HyLobby
     //?}
     fun
     //? if ornithe {
-    /*init(
-    *///?} else {
-            onInitializeClient(
-        //?}
+    init(
+    //?} else {
+            /*onInitializeClient(
+        *///?}
         //? if forge {
         /*event: FMLInitializationEvent
         *///?}

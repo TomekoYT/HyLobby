@@ -1,7 +1,7 @@
 package tomeko.hylobby.event;
 
 //? if 1.8.9 {
-/*public final class ClientSendMessageEvents {
+public final class ClientSendMessageEvents {
     private ClientSendMessageEvents() {}
 
     public static final Event<AllowCommand> ALLOW_COMMAND = Event.create(AllowCommand.class, listeners -> command -> {
@@ -18,4 +18,4 @@ package tomeko.hylobby.event;
         boolean allowSendCommandMessage(String command);
     }
 }
-*///?}
+//?}

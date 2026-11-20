@@ -1,58 +1,58 @@
 package tomeko.hylobby.mixins;
 
 //? if 1.8.9 {
-/*import net.minecraft.client.audio.ISound;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.SoundManager;
-*///?} else {
-import net.minecraft.client.resources.sounds.SoundInstance;
+//?} else {
+/*import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.sounds.SoundEngine;
-//?}
+*///?}
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 //? if 1.8.9
-//import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //? else
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+//import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import tomeko.hylobby.config.HyLobbyConfig;
 import tomeko.hylobby.location.HypixelPackets;
 import tomeko.hylobby.utils.Debug;
 
 @Mixin(
         //? if 1.8.9
-        //value = SoundManager.class,
+        value = SoundManager.class,
         //? else
-        value = SoundEngine.class,
+        //value = SoundEngine.class,
         priority = Integer.MAX_VALUE
 )
 abstract class SoundSilencerMixin {
     @Inject(
             method =
                     //? if 1.8.9
-                    //"playSound",
+                    "playSound",
                     //? else
-                    "play",
+                    //"play",
             at = @At("HEAD"),
             cancellable = true
     )
     private void preventLobbyMusic(
             //? if 1.8.9
-            //ISound instance, CallbackInfo ci
+            ISound instance, CallbackInfo ci
             //? else
-            SoundInstance instance, CallbackInfoReturnable<SoundEngine.PlayResult> cir
+            //SoundInstance instance, CallbackInfoReturnable<SoundEngine.PlayResult> cir
     ) {
         if (!HypixelPackets.INSTANCE.getInLobby()) return;
 
         String path =
                 //? if 1.8.9
-                //instance.getSoundLocation().getResourcePath();
+                instance.getSoundLocation().getResourcePath();
                 //? else
-                instance.getIdentifier().getPath();
+                //instance.getIdentifier().getPath();
 
         Debug.INSTANCE.log("Path: " + path + " <");
 
         //? if 1.8.9 {
-        /*if ((!path.startsWith("ui.") && HyLobbyConfig.INSTANCE.getSilentLobby())
+        if ((!path.startsWith("ui.") && HyLobbyConfig.INSTANCE.getSilentLobby())
                 || (path.startsWith("step.") && HyLobbyConfig.INSTANCE.getLobbyDisableSteppingSounds())
                 || (path.startsWith("mob.slime") && HyLobbyConfig.INSTANCE.getLobbyDisableSlimeSounds())
                 || (path.startsWith("mob.enderdragon") && HyLobbyConfig.INSTANCE.getLobbyDisableDragonSounds())
@@ -72,8 +72,8 @@ abstract class SoundSilencerMixin {
                 || ((path.equals("random.door_open") || path.equals("random.door_close")) && HyLobbyConfig.INSTANCE.getLobbyDisableDoorSounds())
                 || (path.startsWith("portal.") && HyLobbyConfig.INSTANCE.getLobbyDisablePortalSounds())
         ) ci.cancel();
-        *///?} else {
-        if ((!path.startsWith("ui.") && HyLobbyConfig.INSTANCE.getSilentLobby())
+        //?} else {
+        /*if ((!path.startsWith("ui.") && HyLobbyConfig.INSTANCE.getSilentLobby())
                 || (path.startsWith("block.") && path.endsWith(".step") && HyLobbyConfig.INSTANCE.getLobbyDisableSteppingSounds())
                 || (path.startsWith("entity.slime.") && HyLobbyConfig.INSTANCE.getLobbyDisableSlimeSounds())
                 || (path.startsWith("entity.ender_dragon.") && HyLobbyConfig.INSTANCE.getLobbyDisableDragonSounds())
@@ -93,6 +93,6 @@ abstract class SoundSilencerMixin {
                 || ((path.equals("block.wooden_door.open") || path.equals("block.wooden_door.close") || path.equals("block.iron_door.open") || path.equals("block.iron_door.close")) && HyLobbyConfig.INSTANCE.getLobbyDisableDoorSounds())
                 || (path.startsWith("block.portal.") && HyLobbyConfig.INSTANCE.getLobbyDisablePortalSounds())
         ) cir.setReturnValue(SoundEngine.PlayResult.NOT_STARTED);
-        //?}
+        *///?}
     }
 }

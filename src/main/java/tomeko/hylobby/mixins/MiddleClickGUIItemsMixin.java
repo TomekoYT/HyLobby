@@ -1,41 +1,42 @@
 package tomeko.hylobby.mixins;
 
 //? if 1.8.9 {
-/*import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiChest;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.Slot;
-*///?} else {
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+//?} else {
+/*import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-//? if >= 26.3 {
-/*import net.minecraft.client.input.MouseButtonEvent;
+//? if >=26.3 {
+/^import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.input.MouseButtonInfo;
-*///?}
+^///?}
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
-//?}
+*///?}
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import tomeko.hylobby.config.HyLobbyConfig;
 import tomeko.hylobby.location.HypixelPackets;
+import tomeko.hylobby.utils.StringHelperKt;
 
 import java.util.List;
 
 //? if 1.8.9 {
-/*@Mixin(GuiContainer.class)
-*///?} else {
-@Mixin(AbstractContainerScreen.class)
-//?}
+@Mixin(GuiContainer.class)
+ //?} else {
+/*@Mixin(AbstractContainerScreen.class)
+*///?}
 abstract class MiddleClickGUIItemsMixin {
     @WrapOperation(
             method = "mouseClicked",
@@ -43,32 +44,32 @@ abstract class MiddleClickGUIItemsMixin {
                     value = "INVOKE",
                     target =
                             //? if 1.8.9 {
-                            /*"Lnet/minecraft/client/gui/inventory/GuiContainer;handleMouseClick(Lnet/minecraft/inventory/Slot;III)V"
-                            *///?} elif >= 26.3 {
+                            "Lnet/minecraft/client/gui/inventory/GuiContainer;handleMouseClick(Lnet/minecraft/inventory/Slot;III)V"
+                             //?} elif >=26.3 {
                             /*"Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;slotClicked(Lnet/minecraft/world/inventory/Slot;ILnet/minecraft/client/input/MouseButtonEvent;Lnet/minecraft/world/inventory/ContainerInput;)V"
-                            *///?} else {
-                            "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;slotClicked(Lnet/minecraft/world/inventory/Slot;IILnet/minecraft/world/inventory/ContainerInput;)V"
-                    //?}
+                             *///?} else {
+                            /*"Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;slotClicked(Lnet/minecraft/world/inventory/Slot;IILnet/minecraft/world/inventory/ContainerInput;)V"
+                    *///?}
             )
     )
     private void hylobby$useMiddleClick(
             //? if 1.8.9
-            //GuiContainer instance,
+            GuiContainer instance,
             //? else
-            AbstractContainerScreen instance,
+            //AbstractContainerScreen instance,
             Slot slot,
             int slotId,
-            //? if >= 26.3
+            //? if >=26.3
             //MouseButtonEvent event,
             //? else
             int clickedButton,
             //? if 1.8.9
-            //int clickType,
+            int clickType,
             //? else
-            ContainerInput clickType,
+            //ContainerInput clickType,
             Operation<Void> original
     ) {
-        //? if >= 26.3 {
+        //? if >=26.3 {
         /*int clickedButton = switch (event.button()) {
             case 1 -> 0;
             case 3 -> 1;
@@ -81,9 +82,9 @@ abstract class MiddleClickGUIItemsMixin {
                     instance,
                     slot,
                     slotId,
-                    //? if >= 26.3 {
+                    //? if >=26.3 {
                     /*event,
-                    *///?} else {
+                     *///?} else {
                     clickedButton,
                     //?}
                     clickType
@@ -95,74 +96,74 @@ abstract class MiddleClickGUIItemsMixin {
                 instance,
                 slot,
                 slotId,
-                //? if >= 26.3 {
+                //? if >=26.3 {
                 /*new MouseButtonEvent(event.x(), event.y(), new MouseButtonInfo(2, event.modifiers())),
-                *///?} else {
+                 *///?} else {
                 2,
                 //?}
                 //? if 1.8.9 {
-                /*3
-                *///?} elif >= 26.1 {
-                ContainerInput.CLONE
-                //?} else {
+                3
+                 //?} elif >=26.1 {
+                /*ContainerInput.CLONE
+                *///?} else {
                 /*ClickType.CLONE
-                *///?}
+                 *///?}
         );
     }
 
 
     private static boolean hylobby$shouldCallOriginal(
             //? if 1.8.9 {
-            /*GuiContainer instance,
-            *///?} else {
-            AbstractContainerScreen instance,
-            //?}
+            GuiContainer instance,
+             //?} else {
+            /*AbstractContainerScreen instance,
+            *///?}
             Slot slot,
             int clickedButton,
             //? if 1.8.9 {
-            /*int clickType
-            *///?} else {
-            ContainerInput clickType
-            //?}
+            int clickType
+             //?} else {
+            /*ContainerInput clickType
+            *///?}
     ) {
         if (
                 clickedButton != 0
                         //? if 1.8.9 {
-                        /*|| clickType != 0
-                        *///?} else {
-                        || clickType != ContainerInput.PICKUP
-                        //?}
+                        || clickType != 0
+                         //?} else {
+                        /*|| clickType != ContainerInput.PICKUP
+                        *///?}
                         //? if 1.8.9 {
-                        /*|| !(instance instanceof GuiChest)
-                        *///?} else {
-                        || !(instance.getMenu() instanceof ChestMenu)
-                        //?}
+                        || !(instance instanceof GuiChest)
+                         //?} else {
+                        /*|| !(instance.getMenu() instanceof ChestMenu)
+                        *///?}
                         || !HypixelPackets.INSTANCE.getOnHypixel()
                         || slot == null
             //? if 1.8.9 {
-                        /*|| !slot.getHasStack()
+                        || !slot.getHasStack()
                         || !(instance.inventorySlots instanceof ContainerChest)
-                        *///?}
+                        //?}
         ) return true;
 
         //? if 1.8.9 {
-        /*List<String> tooltip = slot.getStack().getTooltip(Minecraft.getMinecraft().thePlayer, Minecraft.getMinecraft().gameSettings.advancedItemTooltips);
-        *///?} else {
-        List<Component> tooltip = slot.getItem().getTooltipLines(Item.TooltipContext.EMPTY, Minecraft.getInstance().player, TooltipFlag.NORMAL);
-        //?}
+        List<String> tooltip = slot.getStack().getTooltip(Minecraft.getMinecraft().thePlayer, Minecraft.getMinecraft().gameSettings.advancedItemTooltips);
+         //?} else {
+        /*List<Component> tooltip = slot.getItem().getTooltipLines(Item.TooltipContext.EMPTY, Minecraft.getInstance().player, TooltipFlag.NORMAL);
+        *///?}
         for (
             //? if 1.8.9 {
-            /*String line
-            *///?} else {
-                Component line
-            //?}
+            String line
+             //?} else {
+                /*Component line
+            *///?}
                 : tooltip
         ) {
             if (hylobby$moreThanOneButton(
                     line
                             //? if fabric {
-                            .getString()
-                    //?}
+                            /*.getString()
+                    *///?}
             )) return true;
         }
 
@@ -182,10 +183,10 @@ abstract class MiddleClickGUIItemsMixin {
 
         String containerTitle =
                 //? if 1.8.9 {
-                /*((ContainerChest) instance.inventorySlots).getLowerChestInventory().getDisplayName().getUnformattedText();
-                *///?} else {
-                instance.getTitle().getString();
-        //?}
+                ((ContainerChest) instance.inventorySlots).getLowerChestInventory().getDisplayName().getUnformattedText();
+                 //?} else {
+                /*instance.getTitle().getString();
+        *///?}
 
         if (HyLobbyConfig.INSTANCE.getMiddleClickGUIItems() && HypixelPackets.INSTANCE.getInLobby())
             return containerTitle.contains("Layout Editor");

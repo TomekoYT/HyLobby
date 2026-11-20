@@ -1,14 +1,14 @@
 package tomeko.hylobby.limbo
 
 //? if 1.8.9 {
-/*import net.minecraft.client.Minecraft
+import net.minecraft.client.Minecraft
 import tomeko.hylobby.event.ClientSendMessageEvents
 import tomeko.hylobby.event.ClientTickEvents
-*///?} else {
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+//?} else {
+/*import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents
 import net.minecraft.client.Minecraft
-//?}
+*///?}
 import tomeko.hylobby.config.HyLobbyConfig
 
 object LimboPlayHelper {
@@ -39,9 +39,9 @@ object LimboPlayHelper {
     private fun send(command: String) {
         sending = true
         //? if 1.8.9
-        //Minecraft.getMinecraft().thePlayer?.sendChatMessage("/$command")
+        Minecraft.getMinecraft().thePlayer?.sendChatMessage("/$command")
         //? else
-        Minecraft.getInstance().player?.connection?.sendCommand(command)
+        //Minecraft.getInstance().player?.connection?.sendCommand(command)
         sending = false
     }
 }

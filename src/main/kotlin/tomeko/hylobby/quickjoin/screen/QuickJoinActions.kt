@@ -9,9 +9,9 @@ import tomeko.hylobby.utils.Debug
 object QuickJoinActions {
     fun execute(func: Func?) {
         //? if 1.8.9
-        //val mc = Minecraft.getMinecraft()
+        val mc = Minecraft.getMinecraft()
         //? else
-        val mc = Minecraft.getInstance()
+        //val mc = Minecraft.getInstance()
         if (func == null || !QuickJoinCompat.hasPlayer(mc)) return
 
         val value = func.string ?: ""

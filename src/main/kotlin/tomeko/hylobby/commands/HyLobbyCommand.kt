@@ -6,18 +6,18 @@ import cc.polyfrost.oneconfig.utils.commands.annotations.Command
 import cc.polyfrost.oneconfig.utils.commands.annotations.Main
 *///?} else {
 //? if fabric {
-import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
+/*import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands.literal
-//?}
-//? if ornithe {
-/*import net.ornithemc.osl.lifecycle.api.client.MinecraftClientEvents
-import org.polyfrost.oneconfig.api.commands.v1.CommandManager.literal
 *///?}
+//? if ornithe {
+import net.ornithemc.osl.lifecycle.api.client.MinecraftClientEvents
+import org.polyfrost.oneconfig.api.commands.v1.CommandManager.literal
+//?}
 import org.polyfrost.oneconfig.utils.v1.dsl.openUI
 //? if ornithe {
-/*import org.polyfrost.oneconfig.internal.legacy.command.ClientCommandRegistrationCallback
-*///?}
+import org.polyfrost.oneconfig.internal.legacy.command.ClientCommandRegistrationCallback
+//?}
 //?}
 import tomeko.hylobby.config.HyLobbyConfig
 import tomeko.hylobby.utils.Constants
@@ -45,10 +45,10 @@ object HyLobbyCommand {
         }
 
         //? if ornithe {
-        /*MinecraftClientEvents.TICK_END.register {
-        *///?} else {
-        ClientTickEvents.END_CLIENT_TICK.register {
-            //?}
+        MinecraftClientEvents.TICK_END.register {
+        //?} else {
+        /*ClientTickEvents.END_CLIENT_TICK.register {
+            *///?}
             if (!shouldOpenConfig) return@register
 
             HyLobbyConfig.openUI()

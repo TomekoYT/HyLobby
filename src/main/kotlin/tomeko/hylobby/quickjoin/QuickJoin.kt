@@ -1,15 +1,15 @@
 package tomeko.hylobby.quickjoin
 
 //? if 1.8.9 {
-/*import tomeko.hylobby.event.ClientSendMessageEvents
+import tomeko.hylobby.event.ClientSendMessageEvents
 import tomeko.hylobby.event.ClientTickEvents
-*///?} else {
-import com.mojang.brigadier.Command
+//?} else {
+/*import com.mojang.brigadier.Command
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents
-//?}
+*///?}
 import net.minecraft.client.Minecraft
 import tomeko.hylobby.config.HyLobbyConfig
 import tomeko.hylobby.location.HypixelPackets
@@ -38,7 +38,7 @@ object QuickJoin {
     // Brigadier command with tab completion. On 1.8.9 the command is handled in allowCommand instead.
     private fun registerCommand() {
         //? if !1.8.9 {
-        ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
+        /*ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
             dispatcher.register(
                 ClientCommands.literal("quickjoin").executes { _ ->
                     openMain(mc())
@@ -46,7 +46,7 @@ object QuickJoin {
                 }
             )
         }
-        //?}
+        *///?}
     }
 
     private fun onTick(mc: Minecraft) {
@@ -75,11 +75,11 @@ object QuickJoin {
         val name = parts[0].lowercase()
 
         //? if 1.8.9 {
-        /*if (name == "quickjoin") {
+        if (name == "quickjoin") {
             openMain(mc())
             return false
         }
-        *///?}
+        //?}
 
         val alias = alias()
         if (alias.isNotEmpty() && alias != "quickjoin" && name == alias &&
@@ -147,9 +147,9 @@ object QuickJoin {
 
     private fun mc(): Minecraft {
         //? if 1.8.9
-        //return Minecraft.getMinecraft()
+        return Minecraft.getMinecraft()
         //? else
-        return Minecraft.getInstance()
+        //return Minecraft.getInstance()
     }
 
     private fun configDir(): Path {

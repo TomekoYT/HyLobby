@@ -1,7 +1,7 @@
 package tomeko.hylobby.quickjoin.screen
 
 //? if 1.8.9 {
-/*import net.minecraft.client.Minecraft
+import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiScreen
@@ -125,8 +125,8 @@ class SearchScreen : GuiScreen() {
         }
     }
 }
-*///?} else {
-import net.minecraft.client.Minecraft
+//?} else {
+/*import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiGraphicsExtractor
 import net.minecraft.client.gui.components.Button
 import net.minecraft.client.gui.components.EditBox
@@ -243,4 +243,4 @@ class SearchScreen : Screen(Component.literal("Search")) {
         super.extractRenderState(context, mouseX, mouseY, delta)
     }
 }
-//?}
+*///?}

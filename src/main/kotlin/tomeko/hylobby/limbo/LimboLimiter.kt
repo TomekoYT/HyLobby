@@ -1,12 +1,12 @@
 package tomeko.hylobby.limbo
 
 //? if 1.8.9 {
-/*import net.minecraft.client.Minecraft
-import tomeko.hylobby.event.ClientTickEvents
-*///?} else {
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.minecraft.client.Minecraft
-//?}
+import tomeko.hylobby.event.ClientTickEvents
+//?} else {
+/*import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+import net.minecraft.client.Minecraft
+*///?}
 import tomeko.hylobby.config.HyLobbyConfig
 import tomeko.hylobby.location.HypixelPackets
 
@@ -23,7 +23,7 @@ object LimboLimiter {
     @JvmStatic
     fun shouldLimitFramerate(): Boolean = inLimbo && HyLobbyConfig.limboLimiter && time * 20 >= 5 &&
             //? if 1.8.9
-            //Minecraft.getMinecraft().gameSettings.limitFramerate > 15
+            Minecraft.getMinecraft().gameSettings.limitFramerate > 15
             //? else
-            Minecraft.getInstance().options.framerateLimit().get() > 15
+            //Minecraft.getInstance().options.framerateLimit().get() > 15
 }

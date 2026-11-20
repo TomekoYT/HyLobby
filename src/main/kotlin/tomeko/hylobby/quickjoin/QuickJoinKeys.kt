@@ -1,7 +1,7 @@
 package tomeko.hylobby.quickjoin
 
 //? if 1.8.9 {
-/*import net.minecraft.client.Minecraft
+import net.minecraft.client.Minecraft
 import net.minecraft.client.settings.KeyBinding
 import org.lwjgl.input.Keyboard
 
@@ -38,8 +38,8 @@ internal object QuickJoinKeys {
         while (searchKey.isPressed) QuickJoin.onSearchKey(mc)
     }
 }
-*///?} else {
-import com.mojang.blaze3d.platform.InputConstants
+//?} else {
+/*import com.mojang.blaze3d.platform.InputConstants
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
@@ -73,4 +73,4 @@ internal object QuickJoinKeys {
     InputConstants.Type.KEYSYM
     //?}
 }
-//?}
+*///?}

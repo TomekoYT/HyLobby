@@ -1,7 +1,7 @@
 package tomeko.hylobby.utils
 
 //? if !1.8.9 {
-import net.minecraft.ChatFormatting
+/*import net.minecraft.ChatFormatting
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.MutableComponent
 import net.minecraft.network.chat.Style
@@ -31,16 +31,16 @@ object LegacyText {
                     val formatting = ChatFormatting.getByCode(code)
                     if (formatting != null) {
                         //? if >= 26.2 {
-                        val color = TextColor.fromLegacyFormat(formatting)
+                        /*val color = TextColor.fromLegacyFormat(formatting)
                         style = if (color != null) Style.EMPTY.withColor(color) else applyFormat(style, formatting)
-                        //?} else {
-                        /*style = if (formatting.isColor()) {
+                        *///?} else {
+                        style = if (formatting.isColor()) {
                             val colorValue = formatting.getColor()
                             if (colorValue != null) Style.EMPTY.withColor(TextColor.fromRgb(colorValue)) else Style.EMPTY
                         } else {
                             applyFormat(style, formatting)
                         }
-                        *///?}
+                        //?}
                     }
                 }
             } else {
@@ -63,4 +63,4 @@ object LegacyText {
         else -> style
     }
 }
-//?}
+*///?}

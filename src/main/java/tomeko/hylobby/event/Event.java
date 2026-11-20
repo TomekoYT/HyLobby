@@ -1,7 +1,7 @@
 package tomeko.hylobby.event;
 
 //? if 1.8.9 {
-/*import java.lang.reflect.Array;
+import java.lang.reflect.Array;
 import java.util.function.Function;
 
 public final class Event<T> {
@@ -41,4 +41,4 @@ public final class Event<T> {
         update();
     }
 }
-*///?}
+//?}
