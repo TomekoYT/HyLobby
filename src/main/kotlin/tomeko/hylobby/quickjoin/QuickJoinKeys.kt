@@ -3,6 +3,8 @@ package tomeko.hylobby.quickjoin
 //? if 1.8.9 {
 import net.minecraft.client.Minecraft
 import net.minecraft.client.settings.KeyBinding
+import net.ornithemc.osl.keybinds.api.KeybindEvents
+import net.ornithemc.osl.keybinds.api.KeybindRegistry
 import org.lwjgl.input.Keyboard
 
 // Vanilla key bindings, so they can be rebound in the Controls menu.
@@ -10,29 +12,16 @@ internal object QuickJoinKeys {
     private lateinit var openKey: KeyBinding
     private lateinit var favoritesKey: KeyBinding
     private lateinit var searchKey: KeyBinding
-    private var registered = false
-
     fun register() {
-    }
-
-    // The bindings are appended to the game settings on the first tick, after the client finished loading,
-    // and the options are read again so keys rebound in a previous session are restored.
-    fun init(mc: Minecraft) {
-        if (registered || mc.gameSettings == null) return
-        registered = true
-
-        // options.txt splits lines on ':', so a ':' in the description stops the binding from ever loading back
-        openKey = KeyBinding("Open QuickJoin Menu", Keyboard.KEY_NONE, "HyLobby")
-        favoritesKey = KeyBinding("Open QuickJoin Favorites", Keyboard.KEY_NONE, "HyLobby")
-        searchKey = KeyBinding("Open QuickJoin Search", Keyboard.KEY_NONE, "HyLobby")
-
-        val old = mc.gameSettings.keyBindings
-        mc.gameSettings.keyBindings = arrayOf(*old, openKey, favoritesKey, searchKey)
-        mc.gameSettings.loadOptions()
+        KeybindEvents.REGISTER_KEYBINDS.register {
+            openKey = KeybindRegistry.register("Open QuickJoin Menu", Keyboard.KEY_NONE, "HyLobby")
+            favoritesKey = KeybindRegistry.register("Open QuickJoin Favorites", Keyboard.KEY_NONE, "HyLobby")
+            searchKey = KeybindRegistry.register("Open QuickJoin Search", Keyboard.KEY_NONE, "HyLobby")
+        }
     }
 
     fun tick(mc: Minecraft) {
-        if (!registered) return
+        if (!::openKey.isInitialized) return
         while (openKey.isPressed) QuickJoin.onOpenKey(mc)
         while (favoritesKey.isPressed) QuickJoin.onFavoritesKey(mc)
         while (searchKey.isPressed) QuickJoin.onSearchKey(mc)
@@ -55,9 +44,6 @@ internal object QuickJoinKeys {
         openKey = KeyMappingHelper.registerKeyMapping(KeyMapping("key.hylobby.quickjoin.open", KEY_TYPE, InputConstants.UNKNOWN.value, category))
         favoritesKey = KeyMappingHelper.registerKeyMapping(KeyMapping("key.hylobby.quickjoin.favorites", KEY_TYPE, InputConstants.UNKNOWN.value, category))
         searchKey = KeyMappingHelper.registerKeyMapping(KeyMapping("key.hylobby.quickjoin.search", KEY_TYPE, InputConstants.UNKNOWN.value, category))
-    }
-
-    fun init(mc: Minecraft) {
     }
 
     fun tick(mc: Minecraft) {

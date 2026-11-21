@@ -50,7 +50,6 @@ object QuickJoin {
     }
 
     private fun onTick(mc: Minecraft) {
-        QuickJoinKeys.init(mc)
         if (!QuickJoinCompat.hasPlayer(mc)) {
             pending = null
             return
