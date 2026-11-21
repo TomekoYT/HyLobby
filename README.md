@@ -57,3 +57,4 @@ Minecraft mod for Hypixel adding lobby related features like middle click gui it
 ## Special Thanks
 
 - [Wyvest](https://github.com/Wyvest) - Limbo Play Helper, Limbo Limiter FPS
+- [Saad Nadeem](https://github.com/saadndm) - Keybinds improvements
